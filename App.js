@@ -39,6 +39,8 @@ const HeaderComponent = ()=> {
     return (
         <div>
             {titleElement}
+            {1+2}
+            {console.log('functional component')}
             {/* {TitleComponent()}     */}
             <TitleComponent />
             <h1>Component 1</h1>

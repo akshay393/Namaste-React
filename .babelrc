@@ -8,5 +8,5 @@
 
 // without options
 {
-    "plugins": ["transform-remove-console"]
+    // "plugins": ["transform-remove-console"]
 }
