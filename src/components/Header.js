@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
+import Logo from "../assets/images/foodvilla.png";
+import { Link } from "react-router-dom";
 
 const Title = ()=> {
     return (
-        <img alt="logo" className="headerImg"
-        src="https://yt3.googleusercontent.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"></img>
+        <a href="/">
+            <img alt="logo" className="headerImg" src={Logo}></img>
+        </a>
     )
 }
 
@@ -16,9 +19,9 @@ const Header = ()=> {
             <Title />
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <li>Cart</li>
                 </ul>
             </div>
