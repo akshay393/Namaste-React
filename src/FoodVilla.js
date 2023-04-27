@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,7 +8,12 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import ProfileFunction from "./components/ProfileFunctional";
+import Shimmer from "./components/Shimmer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+// lazy loading :- it loads the instamart component only when navigate to it
+// a new bundle file is created for lazy loaded components
+const Instamart = lazy(()=> import("./components/Instamart"))
 
 const AppLayout = ()=> {
     return (
@@ -45,8 +50,16 @@ const appRouter = createBrowserRouter([
                 element : <Contact />
             },
             {
-                path : "/restaurant/:id",
+                path : "/restaurant/:resId",
                 element : <RestaurantMenu />
+            },
+            {
+                path : "/instamart",
+                element : (
+                    <Suspense fallback={<Shimmer />}>
+                        <Instamart />
+                    </Suspense>
+                )
             }
         ]
     }
